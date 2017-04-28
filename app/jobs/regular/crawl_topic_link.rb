@@ -4,6 +4,7 @@ require 'excon'
 
 module Jobs
   class CrawlTopicLink < Jobs::Base
+    sidekiq_options queue: 'special'
 
     class ReadEnough < StandardError; end
 

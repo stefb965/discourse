@@ -1,6 +1,7 @@
 module Jobs
 
   class CreateThumbnails < Jobs::Base
+    sidekiq_options queue: 'special'
 
     def execute(args)
       type = args[:type]

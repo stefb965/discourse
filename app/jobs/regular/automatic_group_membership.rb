@@ -1,6 +1,7 @@
 module Jobs
 
   class AutomaticGroupMembership < Jobs::Base
+    sidekiq_options queue: 'special'
 
     def execute(args)
       group_id = args[:group_id]

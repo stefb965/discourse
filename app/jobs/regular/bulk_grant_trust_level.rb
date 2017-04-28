@@ -1,6 +1,7 @@
 module Jobs
 
   class BulkGrantTrustLevel < Jobs::Base
+    sidekiq_options queue: 'special'
 
     def execute(args)
       trust_level = args[:trust_level]

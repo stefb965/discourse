@@ -4,7 +4,7 @@ require_dependency 'system_message'
 module Jobs
 
   class BulkInvite < Jobs::Base
-    sidekiq_options retry: false
+    sidekiq_options retry: false, queue: 'special'
     attr_accessor :current_user
 
     def initialize

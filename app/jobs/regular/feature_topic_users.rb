@@ -1,6 +1,7 @@
 module Jobs
 
   class FeatureTopicUsers < Jobs::Base
+    sidekiq_options queue: 'special'
 
     def execute(args)
       topic_id = args[:topic_id]

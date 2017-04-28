@@ -1,6 +1,7 @@
 module Jobs
 
   class NotifyMovedPosts < Jobs::Base
+    sidekiq_options queue: 'special'
 
     def execute(args)
       raise Discourse::InvalidParameters.new(:post_ids) if args[:post_ids].blank?

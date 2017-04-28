@@ -4,6 +4,7 @@ module Jobs
 
   # Asynchronously send an email
   class InvitePasswordInstructionsEmail < Jobs::Base
+    sidekiq_options queue: 'special'
 
     def execute(args)
       raise Discourse::InvalidParameters.new(:username) unless args[:username].present?

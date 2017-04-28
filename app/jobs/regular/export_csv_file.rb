@@ -6,7 +6,7 @@ module Jobs
   class ExportCsvFile < Jobs::Base
     include ActionView::Helpers::NumberHelper
 
-    sidekiq_options retry: false
+    sidekiq_options retry: false, queue: 'special'
 
     HEADER_ATTRS_FOR ||= HashWithIndifferentAccess.new({
       user_archive:   ['topic_title','category','sub_category','is_pm','post','like_count','reply_count','url','created_at'],
