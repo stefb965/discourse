@@ -1,5 +1,7 @@
 module Jobs
   class PushNotification < Jobs::Base
+    sidekiq_options queue: 'special'
+
     def execute(args)
       notification = args["payload"]
       notification["url"] = UrlHelper.absolute_without_cdn(notification["post_url"])

@@ -4,6 +4,7 @@ require_dependency 'system_message'
 module Jobs
 
   class SendSystemMessage < Jobs::Base
+    sidekiq_options queue: 'special'
 
     def execute(args)
       raise Discourse::InvalidParameters.new(:user_id) unless args[:user_id].present?

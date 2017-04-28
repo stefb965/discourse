@@ -1,6 +1,7 @@
 module Jobs
   class PostAlert < Jobs::Base
-
+    sidekiq_options queue: 'special'
+    
     def execute(args)
       # maybe it was removed by the time we are making the post
       post = Post.where(id: args[:post_id]).first
@@ -9,4 +10,3 @@ module Jobs
 
   end
 end
-
