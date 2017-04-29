@@ -1,7 +1,7 @@
 module Jobs
 
   class ProcessEmail < Jobs::Base
-    sidekiq_options retry: 3, queue: 'special'
+    sidekiq_options retry: 3
 
     def execute(args)
       Email::Processor.process!(args[:mail], args[:retry_on_rate_limit] || false)

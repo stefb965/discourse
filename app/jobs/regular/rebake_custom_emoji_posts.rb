@@ -1,6 +1,5 @@
 module Jobs
   class RebakeCustomEmojiPosts < Jobs::Base
-    sidekiq_options queue: 'special'
 
     def execute(args)
       name = args[:name]

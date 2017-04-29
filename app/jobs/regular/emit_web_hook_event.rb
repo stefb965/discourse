@@ -2,7 +2,6 @@ require 'excon'
 
 module Jobs
   class EmitWebHookEvent < Jobs::Base
-    sidekiq_options queue: 'special'
 
     def execute(args)
       [:web_hook_id, :event_type].each do |key|

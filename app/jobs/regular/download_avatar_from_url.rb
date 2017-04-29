@@ -1,7 +1,7 @@
 module Jobs
 
   class DownloadAvatarFromUrl < Jobs::Base
-    sidekiq_options retry: false, queue: 'special'
+    sidekiq_options retry: false
 
     def execute(args)
       url = args[:url]

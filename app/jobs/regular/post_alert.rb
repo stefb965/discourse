@@ -1,6 +1,5 @@
 module Jobs
   class PostAlert < Jobs::Base
-    sidekiq_options queue: 'special'
     
     def execute(args)
       # maybe it was removed by the time we are making the post

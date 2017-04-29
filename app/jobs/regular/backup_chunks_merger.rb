@@ -1,7 +1,7 @@
 module Jobs
 
   class BackupChunksMerger < Jobs::Base
-    sidekiq_options retry: false, queue: 'special'
+    sidekiq_options retry: false
 
     def execute(args)
       filename   = args[:filename]

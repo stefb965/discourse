@@ -1,6 +1,5 @@
 module Jobs
   class PublishTopicToCategory < Jobs::Base
-    sidekiq_options queue: 'special'
 
     def execute(args)
       topic_status_update = TopicStatusUpdate.find_by(id: args[:topic_status_update_id])

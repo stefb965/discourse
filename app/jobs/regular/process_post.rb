@@ -4,7 +4,6 @@ require_dependency 'cooked_post_processor'
 module Jobs
 
   class ProcessPost < Jobs::Base
-    sidekiq_options queue: 'special'
 
     def execute(args)
       post = Post.find_by(id: args[:post_id])
